@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TqsStack.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">tqsstack</a> &gt; <a href="index.source.html" class="el_package">com.example</a> &gt; <span class="el_source">TqsStack.java</span></div><h1>TqsStack.java</h1><pre class="source lang-java linenums">package com.example;
+import java.util.LinkedList;
+
+public class TqsStack &lt;T&gt;
+{
+    private LinkedList&lt;T&gt; collection;
+    private int capacity;
+    
+<span class="fc" id="L9">    public TqsStack(){</span>
+<span class="fc" id="L10">        this.collection=new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L11">        this.capacity=-1;    </span>
+        
+<span class="fc" id="L13">    }</span>
+
+<span class="fc" id="L15">    public TqsStack(int capacity){</span>
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        if(capacity&lt;=0){</span>
+<span class="nc" id="L17">            throw new IllegalArgumentException(&quot;Capacity must be greater than zero&quot;);</span>
+        }
+<span class="fc" id="L19">        this.collection = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L20">        this.capacity = capacity;</span>
+<span class="fc" id="L21">    }</span>
+
+    public void push(T item) {
+<span class="fc bfc" id="L24" title="All 4 branches covered.">        if (capacity &gt; 0 &amp;&amp; collection.size() &gt;= capacity) {</span>
+<span class="fc" id="L25">            throw new IllegalStateException(&quot;Stack is full&quot;);</span>
+        }
+<span class="fc" id="L27">        collection.add(item);</span>
+<span class="fc" id="L28">    }</span>
+    public T pop(){
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (collection.isEmpty()) {</span>
+<span class="fc" id="L31">            throw new IllegalStateException(&quot;Stack is empty&quot;);</span>
+        } 
+<span class="fc" id="L33">        return collection.removeLast();</span>
+    }
+
+
+    public T peek(){
+<span class="fc bfc" id="L38" title="All 2 branches covered.">       if (collection.isEmpty()){</span>
+<span class="fc" id="L39">        throw new IllegalStateException(&quot;Stack is empty&quot;);</span>
+       }
+<span class="fc" id="L41">       return collection.getLast();</span>
+    }
+
+    public int size(){
+<span class="fc" id="L45">        return collection.size();</span>
+    }
+
+    public boolean isEmpty(){
+<span class="fc" id="L49">        return collection.isEmpty();</span>
+    }
+
+    public boolean isFull() {
+<span class="nc bnc" id="L53" title="All 4 branches missed.">        return capacity &gt; 0 &amp;&amp; collection.size() &gt;= capacity;</span>
+    }
+
+
+    public T popTopN(int n){
+<span class="fc bfc" id="L58" title="All 4 branches covered.">        if(n&lt;=0 || n&gt; collection.size()){</span>
+<span class="fc" id="L59">            throw new IllegalArgumentException(&quot;Invalid number of element to pop&quot;);</span>
+
+        }
+        
+<span class="fc" id="L63">        T top = null;</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        for (int i = 0; i &lt; n; i++) {</span>
+<span class="fc" id="L65">            top = collection.removeFirst();</span>
+        }
+<span class="fc" id="L67">        return top;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
