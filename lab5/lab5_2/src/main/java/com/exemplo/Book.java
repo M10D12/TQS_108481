@@ -1,10 +1,5 @@
 package com.exemplo;
 
-/**
- * Hello world!
- *
- */
-
 import java.time.LocalDateTime;
 public class Book 
 {
