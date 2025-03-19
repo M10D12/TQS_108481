@@ -1,0 +1,56 @@
+-------------------------------------------------------------------------------
+Test set: com.example.RunCucumberTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 30.33 s <<< FAILURE! - in com.example.RunCucumberTest
+Search for books in the online library.Search for a book by title  Time elapsed: 7.973 s  <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for visibility of element located by By.cssSelector: div[class*='search-results'], div[class*='book-list'] (tried for 4 second(s) with 500 milliseconds interval)
+Build info: version: '4.9.1', revision: 'eb2032df7f'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.11.0-19-generic', java.version: '21.0.6'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 136.0, moz:accessibilityChecks: false, moz:buildID: 20250227124745, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 6.11.0-19-generic, moz:processID: 75861, moz:profile: /tmp/rust_mozprofileMirY7u, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86...}
+Session ID: 4c71596e-9ea1-492d-a643-f8918d348364
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.example.SearchSteps.i_should_see_a_list_of_books(SearchSteps.java:52)
+	at ✽.I should see a list of books with titles containing "Clean Code"(file:///home/miguel/Secret%C3%A1ria/3_ano/2_semestre/TQS/TQS_108481/lab5/lab5_3/src/test/resources/features/search_books.feature:7)
+
+Search for books in the online library.Search for a book by author  Time elapsed: 7.5 s  <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for visibility of element located by By.cssSelector: div[class*='search-results'], div[class*='book-list'] (tried for 4 second(s) with 500 milliseconds interval)
+Build info: version: '4.9.1', revision: 'eb2032df7f'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.11.0-19-generic', java.version: '21.0.6'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 136.0, moz:accessibilityChecks: false, moz:buildID: 20250227124745, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 6.11.0-19-generic, moz:processID: 76292, moz:profile: /tmp/rust_mozprofile3G8kWo, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86...}
+Session ID: 96178f95-753b-444b-92c8-46aec9cad505
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.example.SearchSteps.i_should_see_a_list_of_books_written_by(SearchSteps.java:64)
+	at ✽.I should see a list of books written by "Robert C. Martin"(file:///home/miguel/Secret%C3%A1ria/3_ano/2_semestre/TQS/TQS_108481/lab5/lab5_3/src/test/resources/features/search_books.feature:13)
+
+Search for books in the online library.Search for a book that does not exist  Time elapsed: 7.323 s  <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for visibility of element located by By.xpath: //*[contains(text(), 'No results found.')] (tried for 4 second(s) with 500 milliseconds interval)
+Build info: version: '4.9.1', revision: 'eb2032df7f'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.11.0-19-generic', java.version: '21.0.6'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 136.0, moz:accessibilityChecks: false, moz:buildID: 20250227124745, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 6.11.0-19-generic, moz:processID: 76747, moz:profile: /tmp/rust_mozprofileagz1rv, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86...}
+Session ID: 573bec19-a2aa-4dae-918e-9318971f722a
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.example.SearchSteps.i_should_see_a_message(SearchSteps.java:76)
+	at ✽.I should see a message "No results found."(file:///home/miguel/Secret%C3%A1ria/3_ano/2_semestre/TQS/TQS_108481/lab5/lab5_3/src/test/resources/features/search_books.feature:19)
+
+Search for books in the online library.Search with an empty query  Time elapsed: 7.257 s  <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for visibility of element located by By.xpath: //*[contains(text(), 'Please enter a search term.')] (tried for 4 second(s) with 500 milliseconds interval)
+Build info: version: '4.9.1', revision: 'eb2032df7f'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.11.0-19-generic', java.version: '21.0.6'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 136.0, moz:accessibilityChecks: false, moz:buildID: 20250227124745, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 6.11.0-19-generic, moz:processID: 77179, moz:profile: /tmp/rust_mozprofileiRXZWV, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86...}
+Session ID: bbc0eae1-2d6e-44e3-9dca-f1c7ca293bdd
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.example.SearchSteps.i_should_see_an_error_message(SearchSteps.java:84)
+	at ✽.I should see an error message "Please enter a search term."(file:///home/miguel/Secret%C3%A1ria/3_ano/2_semestre/TQS/TQS_108481/lab5/lab5_3/src/test/resources/features/search_books.feature:25)
+

@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "browserless": "^10.7.5",
+    "html-get": "^2.21.1",
+    "puppeteer": "^24.4.0"
+  }
+}
