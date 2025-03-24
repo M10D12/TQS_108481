@@ -1,0 +1,5 @@
+com/example/lab6_4/repository/CarRepository.class
+com/example/lab6_4/Lab6_4Application.class
+com/example/lab6_4/model/Car.class
+com/example/lab6_4/controller/CarController.class
+com/example/lab6_4/service/CarManagerService.class
