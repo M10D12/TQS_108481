@@ -1,0 +1,6 @@
+projectKey=lab8
+serverUrl=http://localhost:9000
+serverVersion=25.3.0.104237
+dashboardUrl=http://localhost:9000/dashboard?id=lab8
+ceTaskId=de814313-93f1-4d34-afc8-a9436884ed15
+ceTaskUrl=http://localhost:9000/api/ce/task?id=de814313-93f1-4d34-afc8-a9436884ed15
