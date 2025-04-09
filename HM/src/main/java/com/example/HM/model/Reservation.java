@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -24,4 +25,11 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "meal_id")
     private Meal meal;
+
+    public Reservation(Meal meal){
+        this.meal = meal;
+        this.date = meal.getDate();
+        this.token=UUID.randomUUID().toString();
+        this.used = false;
+    }
 }
