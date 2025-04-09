@@ -22,17 +22,26 @@ public class HmApplication {
 	@Bean
 	CommandLineRunner initData(RestaurantRepository restaurantRepo, MealRepository mealRepo) {
 		return args -> {
-			Restaurant r = new Restaurant(null, "Cantina Central", "Campus Sul");
-			restaurantRepo.save(r);
+			if (restaurantRepo.count() == 0 && mealRepo.count() == 0) {
+				Restaurant r = new Restaurant(null, "Cantina Central", "Campus Sul");
+				Restaurant l = new Restaurant(null, "Cantina Santiago", "Campus Centro");
 
-			Meal m1 = new Meal(null, "Feijoada", LocalDate.of(2025,4,8), r);
-			Meal m2 = new Meal(null, "Salada Frango", LocalDate.now().plusDays(1), r);
-			Meal m3 = new Meal(null, "Francesinha", LocalDate.now(), r);
-			mealRepo.save(m1);
-			mealRepo.save(m2);
-			mealRepo.save(m3);
+				restaurantRepo.save(r);
+				restaurantRepo.save(l);
+
+				Meal m1 = new Meal(null, "Feijoada", LocalDate.of(2025,4,8), r);
+				Meal m2 = new Meal(null, "Salada Frango", LocalDate.now().plusDays(1), r);
+				Meal m3 = new Meal(null, "Francesinha", LocalDate.now(), r);
+				Meal m4 = new Meal(null, "Pizza", LocalDate.now(), l);
+
+				mealRepo.save(m1);
+				mealRepo.save(m2);
+				mealRepo.save(m3);
+				mealRepo.save(m4);
+			}
 		};
 	}
+
 
 
 }

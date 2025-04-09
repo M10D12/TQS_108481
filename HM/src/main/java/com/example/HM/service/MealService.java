@@ -15,6 +15,10 @@ public class MealService {
     public MealService(MealRepository mealRepository) {
         this.mealRepository = mealRepository;
     }
+    public List<Meal> getAllMeals() {
+        return mealRepository.findAll();
+    }
+    
 
     public List<Meal> getMealsByRestaurantAndDate(Long restaurantId,LocalDate date) {
         return mealRepository.findByRestaurantIdAndDate(restaurantId,date);
