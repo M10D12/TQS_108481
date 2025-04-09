@@ -34,4 +34,12 @@ public class ReservationController {
         if (success) return ResponseEntity.ok("Check-in efetuado com sucesso");
         return ResponseEntity.badRequest().body("Token inválido ou já usado");
     }
+
+    @DeleteMapping("/{token}/cancel")
+    public ResponseEntity<String> cancel(@PathVariable String token) {
+        boolean success = reservationService.cancelReservation(token);
+        if (success) return ResponseEntity.ok("Reserva cancelada com sucesso.");
+        return ResponseEntity.badRequest().body("Reserva não encontrada ou já foi usada.");
+    }
+
 }

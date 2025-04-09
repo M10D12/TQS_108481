@@ -30,6 +30,16 @@ public class ReservationService {
         return reservationRepository.findByToken(token);
     }
 
+    public boolean cancelReservation(String token) {
+        Optional<Reservation> reservation = reservationRepository.findByToken(token);
+        if (reservation.isPresent() && !reservation.get().isUsed()) {
+            reservationRepository.delete(reservation.get());
+            return true;
+        }
+        return false;
+    }
+    
+
     public boolean checkInReservation(String token) {
         Optional<Reservation> optional = reservationRepository.findByToken(token);
         if (optional.isEmpty()) return false;

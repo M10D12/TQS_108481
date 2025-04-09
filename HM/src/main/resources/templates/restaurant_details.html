@@ -17,6 +17,17 @@
             </div>
         </div>
     </nav>
+    <div th:if="${mensagem}" class="alert alert-success" role="alert">
+        <p th:text="${mensagem}"></p>
+        
+        <div th:if="${token}">
+            <form th:action="@{/cancelar-reserva}" method="post">
+                <input type="hidden" name="token" th:value="${token}" />
+                <button class="btn btn-danger mt-2" type="submit">Cancelar Reserva</button>
+            </form>
+        </div>
+    </div>
+    
 
     <div class="container my-5">
         <h2 class="mb-4" th:text="'Refeições em ' + ${restaurant.name}">Refeições</h2>

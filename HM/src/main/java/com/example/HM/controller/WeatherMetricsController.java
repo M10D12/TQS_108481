@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/weather")
+@RequestMapping("/api/cache")
 public class WeatherMetricsController {
 
     private final WeatherForecastService weatherService;
@@ -16,11 +16,11 @@ public class WeatherMetricsController {
     }
 
     @GetMapping("/metrics")
-    public Map<String, Integer> getMetrics() {
+    public Map<String, Object> getCacheMetrics() {
         return Map.of(
-            "totalRequests", weatherService.getTotalRequests(),
-            "cacheHits", weatherService.getCacheHits(),
-            "cacheMisses", weatherService.getCacheMisses()
+                "totalRequests", weatherService.getTotalRequests(),
+                "hits", weatherService.getCacheHits(),
+                "misses", weatherService.getCacheMisses()
         );
     }
 }

@@ -108,14 +108,14 @@ public class WebController {
     @PostMapping("/reservar")
     public String reservar(@RequestParam Long mealId, RedirectAttributes redirectAttributes) {
         Meal meal = mealRepository.findById(mealId).orElseThrow();
-        reservationRepository.save(new Reservation(meal));
-
-
-        logger.info("Reserva criada para a refeição '{}', no restaurante '{}', data: {}", meal.getName(), meal.getRestaurant().getName(), meal.getDate());
+        Reservation reservation = reservationRepository.save(new Reservation(meal));
 
         redirectAttributes.addFlashAttribute("mensagem", "Reserva confirmada com sucesso!");
+        redirectAttributes.addFlashAttribute("token", reservation.getToken());
+
         return "redirect:/restaurant/" + meal.getRestaurant().getId();
     }
+
     @GetMapping("/admin")
     public String adminPage(Model model) {
         model.addAttribute("restaurant", new Restaurant());
@@ -144,6 +144,17 @@ public class WebController {
         return "redirect:/admin";
     }
     
+    @PostMapping("/cancelar-reserva")
+    public String cancelarReserva(@RequestParam String token, RedirectAttributes redirectAttributes) {
+        boolean success = reservationService.cancelReservation(token);
+        if (success) {
+            redirectAttributes.addFlashAttribute("mensagem", "Reserva cancelada com sucesso.");
+        } else {
+            redirectAttributes.addFlashAttribute("mensagem", "Não foi possível cancelar a reserva.");
+        }
+        return "redirect:/meals"; // ou redireciona para a página anterior se quiseres
+    }
+
 
 
 

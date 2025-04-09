@@ -32,4 +32,6 @@ public class Reservation {
         this.token=UUID.randomUUID().toString();
         this.used = false;
     }
+
+    
 }
